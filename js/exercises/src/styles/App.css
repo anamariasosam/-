@@ -1,0 +1,40 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body
+{
+  font-family: 'Roboto';
+
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  color: #fff;
+  background: #06d1e1;
+}
+
+a
+{
+  text-decoration: none;
+
+  color: #fff;
+}
+
+.title
+{
+  font-size: 24px;
+  font-weight: 300;
+
+  margin-top: 20px;
+
+  text-align: center;
+}
+
+.title a
+{
+  text-decoration: none;
+}
+
+.title a:hover
+{
+  text-decoration: underline;
+}

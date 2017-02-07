@@ -1,47 +1,37 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:300);
-body {
-  background: #5a279c;
-  color: #fff;
-}
 
-.inputbox {
-  height: 50px;
-  width: 300px;
+.inputbox
+{
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: 50%;
+
+  width: 300px;
+  height: 50px;
+
   transform: translate(-50%, -50%);
 }
 
-.inputbox input {
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
+.inputbox input
+{
   font-size: 16px;
-  padding: 16.5px 0;
-  border: 0;
-  background: none;
-  width: 50px;
+  font-weight: lighter;
+
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
-  transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
-  transition-delay: 0s, 0.4s, 0s;
-  box-shadow: 0 0 0 1px currentColor;
-  color: inherit;
-  cursor: pointer;
-  padding: 16.5px 0;
-  padding-right: 50px;
-  font-weight: lighter;
-  font-family: 'Roboto';
-}
 
-.inputbox input:focus, .inputbox input:valid {
+  box-sizing: border-box;
   width: 100%;
-  transition-delay: 0.4s, 0s, 0.4s;
-  outline: 0;
-  border-radius: 0;
+  min-width: 0;
+  padding: 16.5px 16.5px;
+  padding-right: 50px;
+
   cursor: text;
-  padding-left: 16.5px;
+  transform: translateX(-50%);
+
+  color: inherit;
+  border: 0;
+  outline: 0;
+  background: none;
+  box-shadow: 0 0 0 1px currentColor;
 }

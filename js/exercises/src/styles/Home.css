@@ -1,0 +1,35 @@
+.content
+{
+  position: relative;
+  top: 5px;
+
+  margin: 0 auto;
+}
+
+.menu a
+{
+  font: bold 13px Helvetica, sans-serif;
+  line-height: 40px;
+
+  display: block;
+
+  width: 80%;
+  height: 40px;
+  margin: 0 auto;
+  margin-bottom: 3px;
+  padding: 0 10px;
+
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  color: #000;
+  color: rgba( 0, 0, 0, .4 );
+  background: #f8f8f8;
+  box-shadow: 0 1px 1px rgba( 0, 0, 0, .2 );
+}
+
+.menu a:hover
+{
+  color: #555;
+}
