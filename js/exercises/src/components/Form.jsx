@@ -6,33 +6,51 @@ import '../styles/Form.css';
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state =
+      { decimal: '',
+        binaryNumber: '',
+      };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDecimalChange = this.handleDecimalChange.bind(this);
+    this.handleBinaryChange = this.handleBinaryChange.bind(this);
+    this.handleDecimalSubmit = this.handleDecimalSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleDecimalChange(event) {
+    this.setState({decimal: event.target.value});
   }
 
-  handleSubmit(event) {
+  handleBinaryChange(event) {
+    this.setState({binaryNumber: event.target.value});
+  }
+
+  handleDecimalSubmit(event) {
     event.preventDefault();
-    const number = new Convertor({ number: this.state.value });
-
-    alert(number.toBin());
+    const number = new Convertor({ number: this.state.decimal });
+    this.setState({ binaryNumber: number.getBinaryNumber() });
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="inputbox">
-        <input
-          type="number"
-          value={this.state.value}
-          onChange={this.handleChange}
-          required
-        />
-      </form>
+      <div className="formContainer">
+        <form onSubmit={this.handleDecimalSubmit} className="inputbox">
+          <input
+            type="number"
+            value={this.state.decimal}
+            onChange={this.handleDecimalChange}
+            placeholder="Número decimal"
+          />
+        </form>
+        <form className="inputbox">
+          <input
+            type="number"
+            value={this.state.binaryNumber}
+            onChange={this.handleBinaryChange}
+            placeholder="Número binario"
+          />
+        </form>
+      </div>
+
     );
   }
 }
