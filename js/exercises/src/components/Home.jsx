@@ -10,7 +10,7 @@ const Home = () => {
       </h1>
       <div className="content">
         <div className="menu">
-          <Link to='/ieee'>Conversión de un número a binario de 32bits</Link>
+          <Link to='/ieee'>Número a binario de 32bits</Link>
         </div>
       </div>
     </div>

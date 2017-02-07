@@ -43,7 +43,7 @@ class Form extends Component {
         </form>
         <form className="inputbox">
           <input
-            type="number"
+            type="string"
             value={this.state.binaryNumber}
             onChange={this.handleBinaryChange}
             placeholder="Número binario"
