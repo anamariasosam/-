@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import '../styles/Form.css';
 import Convertor from '../Convertor';
+import '../styles/Form.css';
+
 
 class Form extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Form extends Component {
     event.preventDefault();
     const number = new Convertor({ number: this.state.value });
 
-    console.log(number.toBin());
+    alert(number.toBin());
   }
 
   render() {
