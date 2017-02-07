@@ -1,13 +1,11 @@
 .formContainer
 {
-  margin: 60px;
+  margin: 20px;
 }
 
 .inputbox
 {
   display: inline;
-
-  margin: 10px;
 }
 
 .inputbox input
@@ -16,7 +14,7 @@
   font-weight: lighter;
 
   min-width: 0;
-  margin-bottom: 20px;
+  margin: 20px;
   padding: 16.5px 16.5px;
   padding-right: 50px;
 
@@ -25,21 +23,18 @@
   outline: 0;
   background: none;
   /*box-shadow: 0 0 0 1px #fff;*/
+  width: 100%;
 }
 
-.inputbox input::-webkit-input-placeholder
-{
+::-webkit-input-placeholder {
   color: #fff;
 }
-.inputbox input::-moz-placeholder
-{
-  color: #fff;
+::-moz-placeholder { /* Firefox 19+ */
+  color:  #fff;
 }
-.inputbox input:-moz-placeholder
-{
-  color: #fff;
+:-ms-input-placeholder {
+  color:  #fff;
 }
-.inputbox input:-ms-input-placeholder
-{
-  color: #fff;
+:-moz-placeholder { /* Firefox 18- */
+  color:  #fff;
 }

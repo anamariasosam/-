@@ -46,27 +46,41 @@ export default class Convertor {
           break;
         }
       }
+
       let exponent = (array.length - index) + 127;
+      array.splice(index - 1, 1);
+      console.log('array', array);
       this.binary32Bits[1] = Number(exponent).toString(2);
     } else {
-      // let array = this.getFloatPart().split("").map(Number);
-      // let index = 0;
-      // for (let i = 0; i < array.length; i++) {
-      //   if (array[i] === 1) {
-      //     index = i + 1;
-      //     break;
-      //   }
-      // }
-      // let exponent = 127 - (array.length - index);
-      // console.log(index);
-      // this.binary32Bits[1] = Number(exponent).toString(2);
+      let array = this.getFloatPart().split("").map(Number);
+      let index = 0;
+
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === 1) {
+          index = i + 1;
+          break;
+        }
+      }
+      let exponent = 127 - index;
+      this.binary32Bits[1] = Number(exponent).toString(2);
     }
 
+  }
+
+  fillMantizaWithZeros() {
+    let zeros = []
+    for (var i = 0; i < 22; i++) {
+      zeros[i] = 0
+    }
+    // aqui es lo que sige usando lo de arriba
+    this.binary32Bits[3] = zeros.join("").toString();
   }
 
   getBinaryNumber() {
     this.setFirstBit();
     this.setEightBits();
-    return this.binary32Bits.join(" ").toString();
+    this.fillMantizaWithZeros();
+    console.log(this.binary32Bits);
+    return this.binary32Bits.join(" ");
   }
 };
