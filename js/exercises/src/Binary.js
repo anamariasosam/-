@@ -1,4 +1,4 @@
-export default class Convertor {
+export default class Binary {
 	constructor(params) {
 		this.number = params.number;
 		this.binary32Bits = [];
@@ -61,7 +61,7 @@ export default class Convertor {
 		if (!(this.getFloatPart() === undefined)) {
 			 mantiza += this.getFloatPart();
 		}
-		
+
 		mantiza.split("")
 		for (let i = 0; i < mantiza.length; i++) {
 			mantiza23bits[i] = mantiza[i];
@@ -73,8 +73,10 @@ export default class Convertor {
 	setFloatPartEightBits() {
 		let array = this.getFloatPart().split("").map(Number);
 		const value = this.getIndex(array);
+
 		const exponent = 127 - value;
-		this.binary32Bits[1] = Number(exponent).toString(2);
+		this.binary32Bits[1] = '0' + Number(exponent).toString(2);
+
 
 		let mantiza = new Array(23).fill(0);
 		this.binary32Bits[2] = mantiza.join("")
@@ -89,9 +91,15 @@ export default class Convertor {
 	}
 
   getBinaryNumber() {
-    this.setFirstBit();
-    this.setEightBits();
-    console.log('resultado final',this.binary32Bits);
-    return this.binary32Bits.join(" ");
+    if (this.number == 0) {
+      this.binary32Bits = new Array(32).fill(0)
+      return this.binary32Bits.join("");
+    } else {
+      this.setFirstBit();
+      this.setEightBits();
+      console.log('resultado final',this.binary32Bits);
+      return this.binary32Bits.join(" ");
+    }
+
   }
 };

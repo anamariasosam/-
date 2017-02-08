@@ -10,20 +10,20 @@
 
 .inputbox input
 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: lighter;
 
   min-width: 0;
   margin: 20px;
-  padding: 16.5px 16.5px;
-  padding-right: 50px;
+  padding: 0;
 
   color: inherit;
   border: 0;
   outline: 0;
   background: none;
   /*box-shadow: 0 0 0 1px #fff;*/
-  width: 100%;
+  width: 320px;
+  max-width: 320px;
 }
 
 ::-webkit-input-placeholder {

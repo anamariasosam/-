@@ -10,7 +10,8 @@ const Home = () => {
       </h1>
       <div className="content">
         <div className="menu">
-          <Link to='/ieee'>Número a binario de 32bits</Link>
+          <Link to="/decimal-to-binary">Decimal a binario de 32bits</Link>
+          <Link to="/binary-to-decimal">Binario a decimal</Link>
         </div>
       </div>
     </div>
