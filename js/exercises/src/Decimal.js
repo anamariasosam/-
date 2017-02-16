@@ -30,19 +30,28 @@ export default class Decimal {
   }
 
   setFirstPart() {
-    if (this.getExponent > 0) {
-      this.decimal[1] = parseInt('1' + this.getMantiza(), 2);
-    }
-    else {
-      let a  = this.getMantiza() + '.1'
-      // solo falta cuando es con coma saber como coger la mantiza
-    }
+		if (this.getExponent() > 0 ) {
+			let index = this.getMantiza().length + 9;
+			let array = this.binary.split("").splice(index, 32);
+			console.log(array);
+			let decimal = 0;
+			for (var i = 0; i < array.length; i++) {
+				if (parseInt(array[i], 10)) {
+					decimal += Math.pow(2, -(i + 1));
+				}
+			}
+			this.decimal[1] = parseInt('1' + this.getMantiza(), 2) + decimal;
+		} else {
+			this.decimal[1] = '0.'
+			// aqui va la parte nueva 
+		}
 
   }
 
   getDecimalNumber() {
     this.setSign();
     this.setFirstPart();
+		console.log(this.decimal);
     return this.decimal.join("");
 
   }

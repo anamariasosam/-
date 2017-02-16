@@ -12,7 +12,6 @@ function matrix = loop_left_right(color_matrix)
   matrix;
 end
 
-
 % Esta funcion recorre la matriz de un especifico color de manera progresiva,
 % de derecha a izquierda por filas
 function matrix = loop_right_left(color_matrix)
@@ -49,7 +48,7 @@ function matrix = loop_bottom_top(color_matrix)
   matrix;
 endfunction
 
-image = imread('/Users/anasosa/Desktop/rdm/capitan.png');
+image = imread('/Users/anasosa/Sites/numerical-methods/matlab/February/pdi/capitan.png');
 
 % Separamos la imagen en las tres matrices RGB
 image_red_matrix = image(:,:,1);
@@ -76,22 +75,35 @@ blue_matrix_right_left = loop_right_left(image_blue_matrix);
 
 % Realizamos el producto punto de los resultados por filas y por columnas
 RGB_left_right_rows = red_matrix_left_right.*blue_matrix_left_right.*green_matrix_left_right;
-%RGB_right_left_rows = red_matrix_right_left.*green_matrix_right_left.*blue_matrix_right_left;
+RGB_right_left_rows = red_matrix_right_left.*green_matrix_right_left.*blue_matrix_right_left;
 
 RGB_top_bottom_col = red_matrix_top_bottom.*green_matrix_top_bottom.*blue_matrix_top_bottom;
-%RGB_bottom_top_col = red_matrix_bottom_top.*green_matrix_bottom_top.*blue_matrix_bottom_top;
+RGB_bottom_top_col = red_matrix_bottom_top.*green_matrix_bottom_top.*blue_matrix_bottom_top;
 
 
-%[M,N] = size(image_red_matrix);
-%RGB_left_right_rows(M,N) = 0;
-%RGB_top_bottom_col(M,N) = 0;
-
-%
-%RGB_col = RGB_top_bottom_col.*RGB_bottom_top_col;
-%RGB_row = RGB_left_right_rows.*RGB_right_left_rows;
-
-% Realizamos el producto punto entre columnas y filas y lo mostramos en una imagen
-%imshow(RGB_col.*RGB_row)
+[M,N] = size(image_red_matrix);
+RGB_left_right_rows(M,N) = 0;
+RGB_top_bottom_col(M,N) = 0;
 
 
-imshow(RGB_left_right_rows.*RGB_top_bottom_col)
+RGB_col = RGB_top_bottom_col.*RGB_bottom_top_col;
+RGB_row = RGB_left_right_rows.*RGB_right_left_rows;
+
+
+RGB = RGB_left_right_rows.*RGB_top_bottom_col
+% Realizamos el producto punto entre columnas y filas y luego lo mostramos en una imagen
+%RGB = RGB_col.*RGB_row
+
+[M,N] = size(RGB);
+for i=1:M
+  for j=1:N
+      if RGB(i,j) > 10
+        RGB(i,j) = 255;
+      else
+        RGB(i,j) = 0;
+      endif
+  end
+end
+
+  
+imshow(RGB)
