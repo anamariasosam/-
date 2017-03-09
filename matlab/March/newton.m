@@ -1,6 +1,6 @@
 
 %Para leer imagen
-f = imread('hijos.jpg');
+f = imread('/Users/anasosa/Sites/numerical-methods/matlab/March/hijos.jpg');
 %captura de la matriz 1
 f_1 = f(:,:,1);
 %tama�o de la matriz
